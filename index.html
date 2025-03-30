@@ -86,10 +86,20 @@
       max-width: 800px; margin: 0 auto;
     }
 
-    @media (max-width: 600px) {
-      nav { display: none; }
-      .menu-toggle { display: flex; }
-      .mobile-nav.active { display: flex; }
+    @media (prefers-color-scheme: dark) {
+      .menu-toggle span {
+        background: white;
+      }
+    
+      form button {
+        background: white;
+        color: black;
+        border: 1px solid #000;
+      }
+    
+      form button:hover {
+        background: #f0f0f0;
+      }
     }
   </style>
 </head>
