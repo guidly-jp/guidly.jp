@@ -162,8 +162,8 @@
         <input type="text" name="name" placeholder="山田 太郎" required>
 
         <label>電話番号</label>
-        <input type="tel" name="tel" placeholder="03-1234-5678">
-
+        <input type="tel" name="tel" placeholder="03-1234-5678" pattern="^[\x20-\x7E]+$" title="半角英数字で入力してください">
+     
         <label>メールアドレス</label>
         <input type="email" name="email" placeholder="sample@example.com" required>
 
