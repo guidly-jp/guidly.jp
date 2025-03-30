@@ -30,31 +30,17 @@
       padding: 0;
       background: #f9f9f9;
     }
-    header { background: #222; color: white; padding: 1rem; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 0 1rem; }
+    header { background: #222; color: white; padding: 1rem; position: fixed; top: 0; width: 100%; z-index: 1000; }
     header .container { display: flex; align-items: center; justify-content: space-between; max-width: 800px; margin: 0 auto; }
     .logo { font-size: 1.5rem; font-weight: bold; color: white; }
     nav { display: flex; gap: 1rem; }
     nav a { color: white; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 0.25rem;
-      box-sizing: border-box;
-    }
-    
-    .menu-toggle span {
-      background: white;
-      height: 2px;
-      width: 20px;
-      margin: 4px 0;
-      display: block;
-    }
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; padding: 0.5rem; }
+    .menu-toggle span { background: white; height: 2px; width: 25px; margin: 4px 0; display: block; }
     .mobile-nav { display: none; flex-direction: column; background: #222; padding: 1rem; }
     .mobile-nav a { margin: 0.5rem 0; color: white; text-decoration: none; font-weight: bold; }
     .mobile-nav a:hover { text-decoration: underline; }
-
     main { padding: 6rem 2rem 2rem; max-width: 800px; margin: auto; }
     section { margin-bottom: 3rem; }
     h2 { font-size: 2rem; font-weight: bold; margin-bottom: 0.2rem; }
