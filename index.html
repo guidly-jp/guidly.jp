@@ -26,6 +26,11 @@
     header div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 800px; margin: 0 auto; }
     footer { background: #222; color: white; padding: 1rem; }
     footer div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 800px; margin: 0 auto; }
+    footer div > div { margin-right: auto; }
+    footer a { color: white; text-decoration: underline; font-weight: normal; }
+    footer a:visited { color: white; }
+    footer a:hover { color: white; text-decoration: underline; }
+
     h1 { margin: 0; font-size: 1.5rem; color: white; }
     nav { display: flex; flex-wrap: wrap; justify-content: center; }
     nav a { margin: 0.5rem 1rem; color: white; text-decoration: none; font-weight: bold; }
@@ -42,8 +47,33 @@
     table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
     table td { padding: 0.5rem; border-bottom: 1px solid #ccc; vertical-align: top; }
     table tr:first-child td { border-top: 1px solid #ccc; }
-    form input, form textarea { width: 100%; padding: 0.75rem; margin-bottom: 1.5rem; border: none; border-radius: 4px; background: #fff; box-shadow: 0 0 0 1px #ccc inset; font-size: 1rem; }
-    form button { padding: 0.75rem 1.5rem; background: #000; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; }
+    form label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 0 0 1px #ccc inset;
+      font-size: 1rem;
+      color: #333;
+    }
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #bbb;
+      font-weight: normal;
+    }
+    form button {
+      padding: 0.75rem 1.5rem;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
     form button:hover { background: #333; }
     a.button { color: white; text-decoration: underline; font-weight: normal; }
 
@@ -137,7 +167,7 @@
 
   <footer>
     <div>
-      <div style="margin-right: auto;">&copy; 2025 Guidly, Inc.</div>
+      <div>&copy; 2025 Guidly, Inc.</div>
       <a href="privacy.html">プライバシーポリシーを見る</a>
     </div>
   </footer>
