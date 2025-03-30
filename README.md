@@ -1,0 +1,2 @@
+# guidly.jp
+Guidly, Inc.
