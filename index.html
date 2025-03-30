@@ -79,6 +79,12 @@
       border-top: 1px solid #ccc;
     }
     
+    /* ← 1列目（左側）は折り返し禁止 */
+    table td:first-child {
+      white-space: nowrap;
+    }
+    
+    /* ← 2列目（右側）のみ折り返しOK */
     table td:nth-child(2) {
       white-space: normal;
       word-break: break-word;
