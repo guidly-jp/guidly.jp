@@ -101,6 +101,16 @@
         background: #f0f0f0;
       }
     }
+    @media (max-width: 600px) {
+    nav { display: none; }
+    .menu-toggle { display: flex; }
+    .mobile-nav {
+      display: none;
+    }
+    .mobile-nav.active {
+      display: flex;
+    }
+}
   </style>
 </head>
 <body>
