@@ -8,31 +8,30 @@
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, footer { background: #222; color: white; padding: 1rem; text-align: center; }
+    header div { display: flex; align-items: center; justify-content: space-between; max-width: 800px; margin: 0 auto; }
+    h1 { margin: 0; font-size: 1.5rem; color: white; }
     nav a { margin: 0 1rem; color: white; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
     main { padding: 2rem; max-width: 800px; margin: auto; }
     section { margin-bottom: 3rem; }
-    h1, h2 { color: #333; }
-    img.hero, img.business-img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; }
+    h2 { color: #333; }
+    img.hero { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; }
+    .service-section, .company-table { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+    .service-text, .company-info { flex: 1; min-width: 250px; }
+    .service-img { flex: 1; min-width: 250px; max-width: 400px; }
+    .service-img img { width: 100%; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    table td { padding: 0.5rem; border-bottom: 1px solid #ccc; vertical-align: top; }
     form input, form textarea { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
     form button { padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
     form button:hover { background: #0056b3; }
     a.button { display: inline-block; padding: 0.5rem 1rem; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
-    nav a {
-      margin: 0 1rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <header>
-    <div style="display: flex; align-items: center; justify-content: space-between; max-width: 800px; margin: 0 auto;">
-      <h1 style="margin: 0; font-size: 1.5rem; color: white;">Guidly, Inc.</h1>
+    <div>
+      <h1>Guidly, Inc.</h1>
       <nav>
         <a href="#business">事業概要</a>
         <a href="#about">会社概要</a>
@@ -47,18 +46,31 @@
     </section>
 
     <section id="business">
-      <h2>事業概要</h2>
-      <img class="business-img" src="https://via.placeholder.com/800x200?text=IT+Business+Image" alt="事業概要画像">
-      <p>ガイドリー株式会社は、AIとノーコード技術を活用して中小企業のデジタル化をサポートする事業を展開しています。</p>
+      <h2>サービス</h2>
+      <p><strong>デジタル活用を推進する業務改善支援</strong></p>
+      <div class="service-section">
+        <div class="service-text">
+          <p>Guidlyは、デジタルツールを活用した中小企業向けの業務改善支援を行うサービスです。SlackやChatworkとの連携、自動化ツールの導入、情報整理の設計など、現場に根ざした支援を提供します。</p>
+        </div>
+        <div class="service-img">
+          <img src="https://via.placeholder.com/400x300?text=Service+Image" alt="サービス画像">
+        </div>
+      </div>
     </section>
 
     <section id="about">
-      <h2>会社概要</h2>
-      <p>
-        <strong>会社名：</strong>ガイドリー株式会社<br>
-        <strong>代表者：</strong>代表取締役 ○○ ○○<br>
-        <strong>所在地：</strong>北海道旭川市（予定）
-      </p>
+      <h2>会社情報</h2>
+      <table>
+        <tr><td>社名</td><td>ガイドリー株式会社</td></tr>
+        <tr><td>所在地</td><td>北海道札幌市...</td></tr>
+        <tr><td>設立</td><td>2025年5月</td></tr>
+        <tr><td>代表取締役</td><td>宮田巧</td></tr>
+        <tr><td>事業内容</td><td>
+          Web制作支援<br>
+          業務DX支援・AI活用<br>
+          ポータルサイト運営
+        </td></tr>
+      </table>
     </section>
 
     <section id="contact">
