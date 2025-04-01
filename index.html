@@ -96,13 +96,21 @@
     }
     form input::placeholder,
     form textarea::placeholder { color: #bbb; font-weight: normal; }
-    form button {
-      padding: 0.75rem 1.5rem; background: white; color: black; border: 1px solid #000;
-      border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;
-      display: block; margin: 0 auto;
+    .submit-button {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: black;
+      border: 1px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      display: inline-block;  /* ← 左寄せ */
     }
-    form button:hover { background: #f0f0f0; }
-    a.button { color: white; text-decoration: underline; font-weight: normal; }
+    
+    .submit-button:hover {
+      background: #f0f0f0;
+    }
 
     footer {
       background: #222; color: white; padding: 1rem 0;
@@ -115,14 +123,12 @@
     @media (prefers-color-scheme: dark) {
       .menu-toggle span {
         background: white;
-      }
-      form button {
-        background: white;
-        color: black;
-        border: 1px solid #000;
-      }
-      form button:hover {
-        background: #f0f0f0;
+    }
+
+    @media (max-width: 600px) {
+      .submit-button {
+        display: block;
+        margin: 0 auto; /* ← 中央寄せ */
       }
     }
 
@@ -306,7 +312,7 @@
 
         <p style="font-size: 0.9rem; color: #666;">※「送信」を押すことで、当社の <a href="privacy.html" target="_blank">プライバシーポリシー</a> に同意したものとみなします。</p>
 
-        <button type="submit">送信</button>
+        <button type="submit" class="submit-button">送信</button>
       </form>
     </section>
   </main>
