@@ -146,6 +146,18 @@
       max-width: 100%;
       overflow-x: hidden;
     }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 <body>
@@ -173,7 +185,7 @@
       <img class="hero" src="guidly_FV.png" alt="ヒーロー画像">
     </section>
 
-    <section id="business">
+    <section id="business" class="fade-up">
       <h2>SERVICE</h2>
       <p class="subheading">事業内容</p>
       <p><strong>デジタル活用を推進する業務改善支援</strong></p>
@@ -222,7 +234,7 @@
             
     </section>
 
-    <section id="about">
+    <section id="about" class="fade-up">
       <h2>COMPANY</h2>
       <p class="subheading">会社概要</p>
       <table>
@@ -237,7 +249,7 @@
       </table>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="fade-up">
       <h2>CONTACT</h2>
       <p class="subheading">お問い合わせ</p>
       <form action="https://formspree.io/f/xeoalrjr" method="POST">
@@ -274,6 +286,17 @@
       const menu = document.getElementById("mobileMenu");
       menu.classList.toggle("active");
     }
+    const fadeUps = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // 一度だけ表示
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    fadeUps.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
