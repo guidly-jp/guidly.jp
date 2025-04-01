@@ -158,9 +158,45 @@
       transform: translateY(0);
     }
 
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      transition: opacity 1s ease;
+    }
+    
+    .splash-text {
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      opacity: 1;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    body.loaded #splash {
+      opacity: 0;
+      pointer-events: none;
+    }
+
   </style>
 </head>
 <body>
+  <div id="splash">
+    <div class="splash-text">Guidly, Inc.</div>
+  </div>
+
   <header>
     <div class="container">
       <div class="logo">Guidly, Inc.</div>
@@ -297,6 +333,13 @@
     }, { threshold: 0.1 });
   
     fadeUps.forEach(section => observer.observe(section));
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 1500); // ← 表示時間（ミリ秒）調整OK
+    });
+
   </script>
 </body>
 </html>
