@@ -340,10 +340,10 @@
   
     fadeUps.forEach(section => observer.observe(section));
 
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         document.body.classList.add("loaded");
-      }, 1000); // ← 表示時間（ミリ秒）調整OK
+      }, 1000);
     });
 
   </script>
