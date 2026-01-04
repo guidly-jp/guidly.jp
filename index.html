@@ -29,16 +29,43 @@
     }
   </script>
   <style>
-    /* フェードアップアニメーション用 */
-    .fade-up {
+    /* アニメーションの基本設定 */
+    .animate-item {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 1.0s ease-out, transform 1.0s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
     }
-    .fade-up.visible {
+
+    /* 下からふわっと（標準） */
+    .fade-up {
+      transform: translateY(40px);
+    }
+
+    /* 上から降りてくる（タイトルなど） */
+    .fade-down {
+      transform: translateY(-40px);
+    }
+
+    /* 左からスライドイン */
+    .fade-left {
+      transform: translateX(-40px);
+    }
+
+    /* 右からスライドイン */
+    .fade-right {
+      transform: translateX(40px);
+    }
+
+    /* 表示状態になったときのクラス */
+    .animate-item.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(0) scale(1);
     }
+
+    /* 遅延設定（カードの連番表示などに使用） */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
     
     /* ロゴ画像の調整 */
     .service-logo {
@@ -82,29 +109,28 @@
     </div>
   </header>
 
-  <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center justify-center bg-gray-50/50">
-    <div class="container mx-auto px-6 text-center max-w-4xl fade-up">
-      <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight text-slate-900">
+  <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center justify-center bg-gray-50/50 overflow-hidden">
+    <div class="container mx-auto px-6 text-center max-w-4xl">
+      <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight text-slate-900 animate-item fade-up">
         Digital Moves Business<br>
         <span class="text-2xl md:text-4xl font-normal text-slate-500 mt-4 block">デジタルで、事業を前に進める。</span>
       </h1>
-      <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-        テクノロジーはあくまで手段です。<br class="hidden md:inline">
+      <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-item fade-up delay-100">
         私たちは「事業の成長」にコミットし、<br class="hidden md:inline">
         税理士事務所様や中小企業の皆様に寄り添ったデジタル支援を行います。
       </p>
-      <div class="flex justify-center gap-4">
+      <div class="flex justify-center gap-4 animate-item fade-up delay-200">
         <a href="#services" class="px-8 py-3 bg-white border border-slate-300 text-slate-700 rounded-full hover:bg-gray-50 transition-colors font-medium">サービスを見る</a>
         <a href="#contact" class="px-8 py-3 bg-slate-900 text-white rounded-full hover:bg-slate-700 transition-colors font-medium shadow-lg shadow-slate-200">お問い合わせ</a>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-24 bg-white fade-up">
+  <section id="about" class="py-24 bg-white overflow-hidden">
     <div class="container mx-auto px-6">
       <div class="max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row gap-12 items-start">
-          <div class="flex-1">
+          <div class="flex-1 animate-item fade-left">
             <h2 class="text-3xl font-bold mb-2 text-slate-900">代表プロフィール</h2>
             <div class="w-12 h-1 bg-slate-800 mb-8"></div>
             
@@ -116,8 +142,8 @@
             <div class="space-y-8 border-l-2 border-gray-100 pl-6 ml-2 relative">
               <div class="relative">
                 <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-slate-300 rounded-full ring-4 ring-white"></span>
-                <p class="text-sm font-bold text-slate-400 mb-1">20178年3月</p>
-                <h4 class="text-lg font-bold text-slate-800">株式会社HERP (HR Techスタートアップ) に新卒入社</h4>
+                <p class="text-sm font-bold text-slate-400 mb-1">2017年3月</p>
+                <h4 class="text-lg font-bold text-slate-800">株式会社HERP (HR Techスタートアップ) を共同創業</h4>
                 <p class="text-slate-600 mt-2 leading-relaxed text-sm">
                   主にビジネス側を掌握し、マーケティング・セールスからカスタマーサクセスまで一気通貫して対応。組織の急成長期を牽引。
                 </p>
@@ -137,27 +163,27 @@
                 <p class="text-sm font-bold text-slate-400 mb-1">2025年5月</p>
                 <h4 class="text-lg font-bold text-slate-800">ガイドリー株式会社を創業</h4>
                 <p class="text-slate-600 mt-2 leading-relaxed text-sm">
-                  税理士業界と中小企業の架け橋となるべく法人化。
+                  税理士業界と中小企業の架け橋となるべく法人化。スタートアップ業界で最先端の技術に触れてきた経験を存分に発揮します。
                 </p>
               </div>
             </div>
           </div>
-
+          
         </div>
       </div>
     </div>
   </section>
 
-  <section id="services" class="py-24 bg-gray-50 fade-up">
+  <section id="services" class="py-24 bg-gray-50">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-item fade-down">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Services</h2>
         <p class="text-slate-500">運営サービス・事業内容</p>
       </div>
       
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center group">
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center group animate-item fade-up">
           <div class="h-20 w-full flex items-center justify-center mb-6">
             <img src="e-zeirishi_black.png" alt="良い税理士" class="service-logo group-hover:scale-105 transition-transform duration-300">
           </div>
@@ -173,13 +199,13 @@
           </a>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center group">
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center group animate-item fade-up delay-100">
           <div class="h-20 w-full flex items-center justify-center mb-6">
             <img src="marutto.png" alt="まるっとシリーズ" class="service-logo group-hover:scale-105 transition-transform duration-300">
           </div>
           <h3 class="text-xl font-bold mb-4 text-slate-800">税理士事務所向け<br>AI BPOサービス</h3>
           <p class="text-slate-600 text-sm leading-relaxed mb-8">
-            HP作成・保守、記事執筆、MEO対策、電話対応などの各種業務を、AIと人のハイブリッド体制で効率化・代行する「まるっと」シリーズを展開。
+            記帳代行や各種申請業務などを、AIと人のハイブリッド体制で効率化・代行する「まるっと」シリーズを展開。
           </p>
           <a href="https://e-zeirishi.com/marutto" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-700 transition-all shadow hover:shadow-md">
             <span>サービスを見る</span>
@@ -189,7 +215,7 @@
           </a>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center">
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center animate-item fade-up delay-200">
           <div class="h-20 w-full flex items-center justify-center mb-6 text-slate-800">
             <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
@@ -203,9 +229,9 @@
     </div>
   </section>
 
-  <section id="company" class="py-24 bg-white fade-up">
+  <section id="company" class="py-24 bg-white">
     <div class="container mx-auto px-6">
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center animate-item fade-down">
         <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-slate-900">Company</h2>
         <div class="w-full max-w-2xl mx-auto">
           <dl class="divide-y divide-gray-100">
@@ -231,8 +257,8 @@
     </div>
   </section>
 
-  <section id="contact" class="py-24 bg-slate-50 fade-up">
-    <div class="container mx-auto px-6 flex flex-col items-center justify-center">
+  <section id="contact" class="py-24 bg-slate-50">
+    <div class="container mx-auto px-6 flex flex-col items-center justify-center animate-item fade-up">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">Contact</h2>
       <p class="text-slate-600 mb-10 text-center">お仕事のご依頼・ご相談など、お気軽にお問い合わせください。</p>
       
@@ -296,18 +322,18 @@
       });
     });
 
-    // スクロール時のフェードインアニメーション
-    const fadeUps = document.querySelectorAll('.fade-up');
+    // スクロール時のアニメーション制御
+    const animateItems = document.querySelectorAll('.animate-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // 一度アニメーションしたら監視を解除
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 }); // 画面の15%が入ったら発火
     
-    fadeUps.forEach(section => observer.observe(section));
+    animateItems.forEach(item => observer.observe(item));
   </script>
 </body>
 </html>
