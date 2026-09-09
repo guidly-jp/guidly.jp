@@ -5,7 +5,10 @@ import "../globals.css";
 export default function EnLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fontClassName}>
-      <body>{children}</body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {children}
+      </body>
     </html>
   );
 }

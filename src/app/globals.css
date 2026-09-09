@@ -29,18 +29,18 @@ body {
   text-wrap: pretty;
 }
 
-/* スクロール表示アニメーション（Reveal コンポーネント） */
-.reveal {
+/* スクロール表示アニメーション（Reveal コンポーネント）。JS 有効時（html.js）のみ初期非表示にする */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
+html.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
 }

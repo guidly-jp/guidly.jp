@@ -5,7 +5,10 @@ import "../globals.css";
 export default function JaLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja" className={fontClassName}>
-      <body>{children}</body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {children}
+      </body>
     </html>
   );
 }
