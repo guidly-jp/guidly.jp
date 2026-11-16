@@ -345,3 +345,6 @@ section[id]{scroll-margin-top:68px}
 .excl-after{margin-top:44px}
 .funnel p{white-space:nowrap}
 @media (max-width:359px){.funnel .f3{padding-left:2.45em}}
+/* 11/16 スマホ: 『開業』に飛び込んだあなたへ。を1行に（画面幅に合わせて文字を縮める） */
+.oneline{white-space:nowrap}
+@media (max-width:767px){.oneline{font-size:min(1em,calc((100vw - 48px) / 15.6))}}
