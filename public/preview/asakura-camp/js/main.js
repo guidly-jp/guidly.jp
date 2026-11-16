@@ -14,6 +14,7 @@ var FORM = {
     name:   '',  // お名前            例: 'entry.1234567890'
     email:  '',  // メールアドレス
     tel:    '',  // 携帯番号
+    regno:  '',  // 税理士登録番号
     area:   '',  // 開業地域
     status: '',  // 現在のご状況（勤務中／開業準備中／開業済み）
     timing: '',  // 開業予定時期、または開業年
@@ -68,7 +69,6 @@ var FORM = {
   var form = document.getElementById('apply-form');
   if (!form) return;
   var msg = document.getElementById('form-msg');
-  var done = document.getElementById('form-done');
   var button = form.querySelector('button[type="submit"]');
   var sent = false;
 
@@ -100,12 +100,10 @@ var FORM = {
     button.textContent = '送信中…';
   });
 
-  // 送信先は見えない iframe。読み込みが終わったら完了表示に切り替える
+  // 送信先は見えない iframe。読み込みが終わったらサンクスページ（thanks.html）へ移動する
+  // 応募完了の計測は thanks.html の表示（page_view）で行う
   document.getElementById('form-target').addEventListener('load', function () {
     if (!sent) return;
-    form.hidden = true;
-    done.hidden = false;
-    done.scrollIntoView({ block: 'center' });
-    if (typeof window.gtag === 'function') window.gtag('event', 'apply_complete');
+    window.location.href = 'thanks.html';
   });
 })();
