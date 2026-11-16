@@ -3,15 +3,15 @@
    触るのは下の「設定」だけ。それ以外は編集不要。
    ===================================================================== */
 
-/* ----- 設定：応募フォームの送信先（Googleフォーム） -----
-   1. Googleフォームを作り、下の項目と同じ質問を用意する
-   2. フォームの「事前入力したURLを取得」で各質問の entry.XXXXXXX を調べる
-   3. action に https://docs.google.com/forms/d/e/【フォームID】/formResponse を入れる
+/* ----- 設定：応募フォームの送信先（11/16〜 sankyodo様のサーバーで受け付け） -----
+   action にサーバー側の受け付けURLを入れる（POST・文字コード UTF-8）。
+   送られる項目名は下の左側（name, email, …）。サーバー側で別の名前が必要なら右側に書く。
+   送信が終わると thanks.html（サンクスページ）へ移動する。
    action が空のあいだは送信されず、「準備中」の案内が出る */
 var FORM = {
   action: '',
   entries: {
-    name:   '',  // お名前            例: 'entry.1234567890'
+    name:   '',  // お名前            例: 'your_name'（空ならそのまま name で送る）
     email:  '',  // メールアドレス
     tel:    '',  // 携帯番号
     regno:  '',  // 税理士登録番号
@@ -89,7 +89,7 @@ var FORM = {
       show('応募フォームは現在準備中です。公開までお待ちください。');
       return;
     }
-    // 画面の項目名を Googleフォームの entry.XXXX に付け替えて送る
+    // 設定で別名が指定されていれば、項目名を付け替えて送る
     Object.keys(FORM.entries).forEach(function (key) {
       var field = form.elements[key];
       if (field && FORM.entries[key]) field.name = FORM.entries[key];
