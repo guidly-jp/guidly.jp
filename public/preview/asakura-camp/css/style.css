@@ -331,3 +331,5 @@ section[id]{scroll-margin-top:68px}
 .thanks-tag{font-family:var(--serif);font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.14em;color:var(--gold);margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
 .thanks-back{margin-top:36px;padding:14px 22px;font-size:13px}
 @media (max-width:767px){.thanks{padding-top:110px}.thanks-tag{font-size:15px;letter-spacing:.08em}}
+/* タグラインは小さいスマホでも1行に収める */
+@media (max-width:767px){.thanks-tag,.cta-tag{font-size:min(15px,4vw);letter-spacing:.02em}}
